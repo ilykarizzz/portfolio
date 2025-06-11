@@ -188,7 +188,17 @@ export default function Home() {
           <div className="grid gap-3 md:grid-cols-3">
             <p className="flex justify-center items-center gap-2"><Smartphone size={16} /> +48 667 530 007</p>
             <p className="flex justify-center items-center gap-2"><Mail size={16} /> kornowski.karol1@gmail.com</p>
-            <p className="flex justify-center items-center gap-2"><Globe size={16} /> [Link do strony wkrótce]</p>
+            <p className="flex justify-center items-center gap-2">
+              <Globe size={16} /> 
+              <a 
+                href="https://github.com/ilykarizzz/portfolio" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:text-[#7e5d44] dark:hover:text-[#d3b9a3] transition-colors"
+              >
+                github.com/ilykarizzz/portfolio
+              </a>
+            </p>
           </div>
           <p className="mt-6 text-xs text-gray-500">© {new Date().getFullYear()} Designed & developed by Karol Kornowski</p>
         </motion.footer>
