@@ -14,26 +14,11 @@ type Statistic = {
 
 const statistics: Statistic[] = [
   {
-    icon: <Server className="w-8 h-8 text-[#7e5d44] dark:text-[#d3b9a3]" />,
-    value: 110,
-    label: "Stron wykonanych",
-  },
-  {
     icon: <Users className="w-8 h-8 text-[#7e5d44] dark:text-[#d3b9a3]" />,
     value: 98,
     label: "Zadowolonych klientów",
     suffix: "%",
-  },
-  {
-    icon: <Award className="w-8 h-8 text-[#7e5d44] dark:text-[#d3b9a3]" />,
-    value: 6,
-    label: "Lat doświadczenia",
-  },
-  {
-    icon: <Clock className="w-8 h-8 text-[#7e5d44] dark:text-[#d3b9a3]" />,
-    value: 72,
-    label: "Godziny wsparcia miesięcznie",
-  },
+  }
 ];
 
 function CountUp({ target, suffix = '' }: { target: number; suffix?: string }) {
@@ -71,20 +56,19 @@ export function StatisticsSection() {
         <ScrollAnimation type="slide-up">
           <h2 className="text-3xl font-bold text-center mb-10 dark:text-white">Moje osiągnięcia</h2>
         </ScrollAnimation>
-        
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="flex justify-center">
           {statistics.map((stat, i) => (
             <ScrollAnimation
               key={i}
               type="zoom"
               delay={i * 0.15}
             >
-              <div className="flex flex-col items-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md">
+              <div className="flex flex-col items-center p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-lg max-w-xs mx-auto border border-gray-100 dark:border-gray-700">
                 <div className="mb-4">{stat.icon}</div>
-                <h3 className="text-3xl md:text-4xl font-bold text-[#7e5d44] dark:text-[#d3b9a3]">
+                <h3 className="text-4xl md:text-5xl font-bold text-[#7e5d44] dark:text-[#d3b9a3]">
                   <CountUp target={stat.value} suffix={stat.suffix} />
                 </h3>
-                <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 mt-1 text-center">
+                <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 mt-3 text-center font-medium">
                   {stat.label}
                 </p>
               </div>

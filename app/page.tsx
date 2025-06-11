@@ -186,7 +186,16 @@ export default function Home() {
               www.bandoo.studio <ExternalLink size={14} className="inline" />
             </a>
           </p>
-          <p className="text-sm text-gray-700 dark:text-gray-400">Dla zainteresowanych dostępna jest również opcja bieżącego wsparcia technicznego oraz aktualizacji strony — 100 zł/miesięcznie w formie abonamentu.</p>
+          <div className="mt-6 bg-white/80 dark:bg-gray-800/80 p-6 rounded-2xl shadow-lg max-w-md mx-auto">
+            <p className="text-base text-gray-700 dark:text-gray-300 mb-4">Dla zainteresowanych dostępna jest również opcja bieżącego wsparcia technicznego oraz aktualizacji strony — 100 zł/miesięcznie w formie abonamentu.</p>
+            <div className="mt-3">
+              <StripePayment 
+                service="Abonament wsparcia technicznego"
+                amount={100}
+                productId="prod_STqZ0toutOFs01"
+              />
+            </div>
+          </div>
         </div>
 
         <motion.footer
