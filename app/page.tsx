@@ -8,13 +8,12 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { ThemeToggle } from "../components/ui/theme-toggle";
 import { Header } from "../components/ui/header";
-import { Testimonials } from "../components/ui/testimonials";
 import { PortfolioProjects } from "../components/ui/portfolio-projects";
 import { ContactForm } from "../components/ui/contact-form";
 import { ScrollAnimation } from "../components/ui/scroll-animation";
 import { SkillsSection } from "../components/ui/skills-section";
 import { StatisticsSection } from "../components/ui/statistics-section";
-import { ProjectGallery } from "../components/ui/project-gallery";
+import { StripePayment } from "../components/ui/stripe-payment";
 import { Typewriter } from "../components/ui/typewriter";
 import { useState, useEffect } from "react";
 
@@ -106,14 +105,20 @@ export default function Home() {
             title: "Mini-Wizytówka",
             desc: "1 strona, dane kontaktowe, mapa",
             price: "600 zł",
+            features: ["Responsywny design", "Szybkie ładowanie", "Podstawowe SEO"],
+            productId: "prod_SToWufdSucPTdw"
           }, {
             title: "Mała strona firmowa",
             desc: "3-4 podstrony, galeria, oferta",
             price: "1000 zł",
+            features: ["Wszystko z Mini-Wizytówki", "Formularz kontaktowy", "Galeria zdjęć", "Optymalizacja SEO"],
+            productId: "prod_STqaqhcrtUmraV"
           }, {
             title: "Pełna wersja",
             desc: "5+ podstron, formularz, SEO",
             price: "1500–1800 zł",
+            features: ["Wszystko z Małej strony", "Zaawansowana optymalizacja SEO", "Integracja z mediami społecznościowymi", "Panel administracyjny"],
+            productId: "prod_STqbEHrK6ySwK5"
           }].map((item, i) => (
             <motion.div
               key={i}
@@ -126,11 +131,7 @@ export default function Home() {
                   <h2 className="text-2xl font-semibold text-[#7e5d44] dark:text-[#d3b9a3]">{item.title}</h2>
                   <p className="text-gray-700 dark:text-gray-300">{item.desc} <br />Czas realizacji: 3 dni robocze</p>
                   <ul className="space-y-2 mt-3">
-                    {[
-                      item.title === "Mini-Wizytówka" ? ["Responsywny design", "Szybkie ładowanie", "Podstawowe SEO"] :
-                      item.title === "Mała strona firmowa" ? ["Wszystko z Mini-Wizytówki", "Formularz kontaktowy", "Galeria zdjęć", "Optymalizacja SEO"] :
-                      ["Wszystko z Małej strony", "Zaawansowana optymalizacja SEO", "Integracja z mediami społecznościowymi", "Panel administracyjny"]
-                    ].flat().map((feature, idx) => (
+                    {item.features.map((feature, idx) => (
                       <li key={idx} className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
                         <svg className="w-4 h-4 text-[#7e5d44] dark:text-[#d3b9a3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -139,7 +140,24 @@ export default function Home() {
                       </li>
                     ))}
                   </ul>
-                  <p className="text-xl font-bold mt-4 text-[#7e5d44] dark:text-[#d3b9a3]">{item.price}</p>
+                  <div className="flex flex-col gap-3 mt-4">
+                    <p className="text-xl font-bold text-[#7e5d44] dark:text-[#d3b9a3]">{item.price}</p>
+                    <StripePayment 
+                      service={item.title}
+                      amount={parseInt(item.price.replace(/[^0-9]/g, ''))}
+                      productId={item.productId}
+                    />
+                    <a
+                      href="#contact"
+                      className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-[#7e5d44] bg-transparent border border-[#7e5d44] rounded-lg hover:bg-[#7e5d44] hover:text-white dark:text-[#d3b9a3] dark:border-[#d3b9a3] dark:hover:bg-[#d3b9a3] dark:hover:text-gray-900 transition-colors duration-300"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
+                      }}
+                    >
+                      Kontakt
+                    </a>
+                  </div>
                 </CardContent>
               </Card>
             </motion.div>
@@ -156,14 +174,6 @@ export default function Home() {
           
         <section id="portfolio" className="pt-16">
           <PortfolioProjects />
-        </section>
-        
-        <section id="gallery" className="pt-16">
-          <ProjectGallery />
-        </section>
-        
-        <section id="testimonials" className="pt-16">
-          <Testimonials />
         </section>
         
         <section id="contact" className="pt-16">
@@ -191,12 +201,12 @@ export default function Home() {
             <p className="flex justify-center items-center gap-2">
               <Globe size={16} /> 
               <a 
-                href="https://github.com/ilykarizzz/portfolio" 
+                href="https://kornowski.tech" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="hover:text-[#7e5d44] dark:hover:text-[#d3b9a3] transition-colors"
               >
-                github.com/ilykarizzz/portfolio
+                kornowski.tech
               </a>
             </p>
           </div>
