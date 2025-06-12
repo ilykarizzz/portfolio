@@ -32,9 +32,9 @@ export function StripePayment({ service, amount, productId, onSuccess, onError }
 
       const data = await response.json();
       
-      if (data.success) {
-        // In a real implementation, redirect to Stripe checkout
-        window.open(data.paymentUrl, '_blank');
+      if (data.url) {
+        // Redirect to Stripe checkout
+        window.open(data.url, '_blank');
         onSuccess?.();
       } else {
         throw new Error(data.error || 'Payment processing failed');
