@@ -13,24 +13,19 @@ type ImageData = {
 
 const images: ImageData[] = [
   {
-    url: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4",
-    alt: "Restauracja - strona główna",
-    description: "Strona główna z eleganckim sliderem i menu",
+    url: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04",
+    alt: "Bandoo Studio - strona główna",
+    description: "Strona główna studia produkcyjnego",
   },
   {
-    url: "https://images.unsplash.com/photo-1552566626-52f8b828add9",
-    alt: "Restauracja - menu",
-    description: "Interaktywne menu z podziałem na kategorie",
+    url: "https://images.unsplash.com/photo-1593697821028-7cc59cfd7399",
+    alt: "Bandoo Studio - portfolio",
+    description: "Sekcja portfolio z projektami",
   },
   {
-    url: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0",
-    alt: "Restauracja - galeria",
-    description: "Galeria zdjęć z różnymi potrawami",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1559339352-11d035aa65de",
-    alt: "Restauracja - kontakt",
-    description: "Strona kontaktowa z mapą i formularzem rezerwacji",
+    url: "https://images.unsplash.com/photo-1550645612-83f5d594b671",
+    alt: "Bandoo Studio - kontakt",
+    description: "Strona kontaktowa z formularzem",
   },
 ];
 

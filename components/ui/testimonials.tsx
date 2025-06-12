@@ -13,24 +13,9 @@ type Testimonial = {
 
 const testimonials: Testimonial[] = [
   {
-    name: "Anna Kowalska",
-    company: "Kwiaciarnia Floris",
-    text: "Strona internetowa, którą otrzymałam, przekroczyła moje oczekiwania! Jest piękna, intuicyjna i przyciąga nowych klientów."
-  },
-  {
-    name: "Jan Nowak",
-    company: "Auto Serwis",
-    text: "Profesjonalna współpraca od początku do końca. Strona działa szybko, wygląda nowocześnie i jest świetnie zoptymalizowana."
-  },
-  {
-    name: "Marta Wiśniewska",
-    company: "Kancelaria Prawna",
-    text: "Nasza kancelaria potrzebowała eleganckiej i funkcjonalnej strony - otrzymaliśmy dokładnie to, czego oczekiwaliśmy. Polecam."
-  },
-  {
-    name: "Piotr Zieliński",
-    company: "Restauracja Smaki",
-    text: "Dzięki nowej stronie internetowej nasze rezerwacje wzrosły o 30%. Świetna responsywność i design!"
+    name: "Adam Nowak",
+    company: "Bandoo Studio",
+    text: "Strona internetowa, którą otrzymałem, przekroczyła moje oczekiwania! Jest piękna, intuicyjna i przyciąga nowych klientów."
   }
 ];
 
