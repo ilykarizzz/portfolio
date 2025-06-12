@@ -1,6 +1,6 @@
 # Karol Kornowski Portfolio
 
-Professional portfolio website showcasing web development services for business clients.
+Professional portfolio website showcasing web development services for business clients. This site features modern design, responsive layout, and Stripe integration for service payments.
 
 ![Portfolio Preview](public/logokarol.png)
 
